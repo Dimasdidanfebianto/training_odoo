@@ -2,11 +2,12 @@
   <data>
   <!-- Membuat View Tree/List Course -->
     <record id="training_course_view_tree" model="ir.ui.view">
-        <field name="name">training.course.tree</field>
+        <field name="name">training.course.</field>
         <field name="model">training.course</field>
         <field name="arch" type="xml">
             <tree string="Course List">
                 <field name="name"/>
+                <field name="user_id"/>
                 <field name="description" />
            </tree>
         </field>
@@ -22,8 +23,37 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="user_id"/>
                     </group>
                     <notebook>
+                        <page string="Sesi">
+                          <group>
+                              <field name="session_line" mode="tree,kanban" no_label="1">
+                                  <!-- editable top berfungsi seperti excel -->
+                                  <tree string="Sesi" editable="top">
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="start_date"/>
+                                    <field name="duration"/>
+                                    <field name="seats"/>
+                                  </tree>
+                                  <form string='Sesi'>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="start_date"/>
+                                        <field name="duration"/>
+                                        <field name="seats"/>
+                                    </group>
+                                  </form>
+                              </field>
+                          </group>
+                        </page>
+                        <page string="Cendera Mata">
+                          <group>
+                            <field name="product_ids" nolabel="1" colspan="2"/>
+                          </group>
+                        </page>           
                         <page string ="Keterangan">
                           <group>
                               <field name="description"/>
@@ -33,6 +63,13 @@
                 </sheet>
               </form>  
         </field>
+    </record>
+
+    <!-- Membuat Action/Event Session -->
+    <record id="training_session_action" model="ir.actions.act_window">
+        <field name="name">Session</field>
+        <field name="res_model">training.session</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Membuat Action/Event Course -->
@@ -46,6 +83,10 @@
             </p>
         </field>    
     </record>
+
+    <!-- Membuat Menu Item Session -->
+
+    <menuitem id="menu_item_training_session" name="Session" parent="menu_bar_training_odoo" action="training_session_action"/>
 
     <!-- Membuat Menu Dashboard -->
 
