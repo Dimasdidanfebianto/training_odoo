@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+    <record id="data_demo_course_1" model="training.course">
+      <field name="name"=>Technical</field>
+      <field name="description"=>Training Tehcnical memiliki tujuan agar user dapat membuat custom modul sendiri</field>
+    </record>
+
+    <record id="data_demo_course_2" model="training.course">
+      <field name="name"=>Functional</field>
+      <field name="description"=>Training Funcriona memiliki tujuan agar user dapat membuat custom modul sendiri</field>
+    </record>
+
+    <record id="data_demo_course_3" model="training.course">
+      <field name="name"=>Python</field>
+      <field name="description"=>Training Tehcnical memiliki tujuan agar user dapat membuat custom modul sendiri</field>
+    </record>
+    </data>
+</odoo>
