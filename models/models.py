@@ -22,3 +22,22 @@ class TrainingSession(models.Model):
     duration = fields.Float(string='Durasi', help="Jumlah Hari Training")
     seats = fields.Integer(string='Kursi', help="Jumlah Kuota Kursi")
     partner_id = fields.Many2one('res.partner', string='Instruktur')
+
+
+class TrainingAttendee(models.Model):
+    _name ='training.attendee'
+    _description = 'Training Peserta'
+    _inherits ={'res.partner': 'partner_id'}
+    
+    partner_id = fields.Many2one('res.partner', 'Partner', required=True, ondelete='cascade')
+    name = fields.Char(related='partner_id.name', inherited=True, readonly=False)
+    sex = fields.Selection([
+        ('male', 'Laki-Laki'),
+        ('female', 'Perempuan')
+    ], string='Jenis Kelamin', required=True, help="Pilih Jenis Kelamin")
+
+    marital = fields.Selection([
+        ('single', 'Single'),
+        ('married', 'Menikah'),
+        ('divorced', 'Cerai')
+    ], string='Status Perkawinan')

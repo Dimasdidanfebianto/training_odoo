@@ -25,11 +25,4 @@
         <field name="context">{}</field>
     </record>
 
-    <!-- Menu Configuration -->
-    <menuitem id="menu_training_configuration" name="Configuration" parent="menu_dashboard_training_odoo"/>
-
-    <!-- Menu Instructor -->
-    <menuitem id="menu_training_instructor" name="Instructors"
-              parent="menu_training_configuration"
-              action="action_res_partner_instructor"/>
 </odoo>
