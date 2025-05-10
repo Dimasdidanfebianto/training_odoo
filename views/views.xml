@@ -65,6 +65,46 @@
         </field>
     </record>
 
+    <!-- Membuat View Tree/List Session -->
+    <record id="training_session_view_tree" model="ir.ui.view">
+        <field name="name">training.session.view</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <tree string="session List">
+                <field name="course_id"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Membuat View Form Session -->
+    <record id="training_session_view" model="ir.ui.view">
+        <field name="name">training.sesssion.form</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <form string="Session Form">
+              <sheet> 
+                  <group>
+                      <group>
+                          <field name="course_id"/>
+                          <field name="name"/>
+                          <field name="partner_id"/>
+                      </group>
+                      <group>
+                          <field name="start_date"/>
+                          <field name="duration"/>
+                          <field name="seats"/>
+                      </group>
+                  </group>
+              </sheet>
+            </form>
+        </field>
+    </record>
+
     <!-- Membuat Action/Event Session -->
     <record id="training_session_action" model="ir.actions.act_window">
         <field name="name">Session</field>

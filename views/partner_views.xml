@@ -1,0 +1,35 @@
+<odoo>
+    <!-- Inherit Form View untuk menambahkan tab "Session" di Partner -->
+    <record id="view_partner_form_inherit_training" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.training.session</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Sessions">
+                    <group>
+                        <field name="instructor"/>
+                        <field name="session_line"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Action untuk membuka daftar Instructor -->
+    <record id="action_res_partner_instructor" model="ir.actions.act_window">
+        <field name="name">Instructors</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('instructor', '=', True)]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Menu Configuration -->
+    <menuitem id="menu_training_configuration" name="Configuration" parent="menu_dashboard_training_odoo"/>
+
+    <!-- Menu Instructor -->
+    <menuitem id="menu_training_instructor" name="Instructors"
+              parent="menu_training_configuration"
+              action="action_res_partner_instructor"/>
+</odoo>
