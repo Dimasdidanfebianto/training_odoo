@@ -51,6 +51,11 @@ class TrainingSession(models.Model):
     partner_id = fields.Many2one('res.partner', string='Instruktur', domain=[('instructor', '=', True), ('category_id', 'ilike', 'Pengajar')])
     attendee_ids = fields.Many2many('training.attendee', 'session_attendee_rel', 'session_id', 'attendee_id', 'Peserta')
     taken_seats = fields.Integer(string="Kursi Terisi", compute='compute_taken_seats')
+    color = fields.Integer('Color Index', default=0)
+    level = fields.Selection(string='Tingkatan', related='course_id.level')
+    state = fields.Selection([('draft', 'Draft'), ('open', 'Open'), ('done', 'Done')], string='Status', default='draft')
+    
+
 
 
     @api.depends('seats', 'attendee_ids')
