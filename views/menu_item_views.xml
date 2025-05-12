@@ -17,7 +17,10 @@
         <!-- Menu Instructor -->
         <menuitem id="menu_training_instructor" name="Instructors"
                 parent="menu_bar_configuration"
-                action="action_res_partner_instructor"/>
+                action="action_res_partner_instructor"/> 
+        	
+        <menuitem id="menu_item_instructor_tags" name="Instructor Tags" parent="menu_bar_configuration" action="base.action_partner_category_form"/>
+      
 
     </data>
 </odoo>
